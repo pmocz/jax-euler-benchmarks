@@ -9,7 +9,7 @@
 #SBATCH --gpus-per-node=4
 #SBATCH --cpus-per-task=2
 #SBATCH --mem=16G
-#SBATCH --time=00-00:05
+#SBATCH --time=00-01:00
 
 module purge
 module load cuda

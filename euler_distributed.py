@@ -4,7 +4,7 @@
 import os
 import jax
 
-USE_CPU_ONLY = True  # False
+USE_CPU_ONLY = False  # True  # False
 
 flags = os.environ.get("XLA_FLAGS", "")
 if USE_CPU_ONLY:
@@ -191,7 +191,7 @@ def main():
         print("Number of devices on this process: ", jax.local_device_count())
 
     # Simulation parameters
-    N = 8192  # 8192 256 # resolution
+    N = 8192  # 8192 4096 2048 1024 # resolution
     boxsize = 1.0
     gamma = 5.0 / 3.0  # ideal gas gamma
     courant_fac = 0.4
