@@ -306,8 +306,8 @@ def main():
                 # Print million updates per second
                 cell_updates = X.shape[0] * X.shape[1] * n_iter
                 total_time = time.time() - tic
-                mups = cell_updates / (1e6 * total_time)
-                print("  million cell updates / second: ", mups)
+                mcups = cell_updates / (1e6 * total_time)
+                print("  million cell updates / second: ", mcups)
 
     if jax.process_index() == 0:
         print("Total time: ", total_time)

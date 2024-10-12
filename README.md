@@ -16,10 +16,10 @@ Benchmarking on `macbook` (Apple M3 Max) and `rusty` (Nvidia A100)
 
 ## Final Simulation Result
 
-8192^2 resolution JAX (single-precision) simulation after 137145 iterations on 8 GPUs in 17.6 minutes
+16384^2 resolution JAX (single-precision) simulation after 277300 iterations on 16 GPUs in 64.1 minutes
 
-(for reference, my macbook run at 1024^2 resolution after 15424 iterations took 7.4 minutes)
+(for reference, my macbook run (single-precision) at 1024^2 resolution after 15426 iterations took 4.6 minutes)
 
-The GPU calculations had a throughput (mups) 240x more!
+The GPU calculations had a throughput (mcups) 335x more!
 
-![final snapshot](result8192.png)
+![final snapshot](result_16384_single.png)
