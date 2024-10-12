@@ -6,6 +6,12 @@ Flatiron Institute
 
 Benchmarking on `macbook` (Apple M3 Max) and `rusty` (Nvidia A100)
 
+## Files
+
+* `euler.py` simple JAX version on single node
+* `euler_distributed.py` simple numpy version
+* `euler_numpy.py` JAX version for distributed systems
+
 ## Strong Scaling on `macbook`:
 
 ![strong scaling](scaling_strong.png)
