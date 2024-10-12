@@ -14,11 +14,11 @@ Benchmarking on `macbook` (Apple M3 Max) and `rusty` (Nvidia A100)
 
 ## Strong Scaling on `macbook`:
 
-![strong scaling](scaling_strong.png)
+![strong scaling](results/scaling_strong.png)
 
 ## Weak Scaling on `rusty`:
 
-![weak scaling](scaling_weak.png)
+![weak scaling](results/scaling_weak.png)
 
 ## Final Simulation Result
 
@@ -28,4 +28,4 @@ Benchmarking on `macbook` (Apple M3 Max) and `rusty` (Nvidia A100)
 
 The GPU calculations had a throughput (mcups) 335x more!
 
-![final snapshot](result_16384_single.png)
+![final snapshot](results/result_16384_single.png)
