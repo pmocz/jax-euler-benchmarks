@@ -8,7 +8,7 @@ import time
 import argparse
 
 parser = argparse.ArgumentParser()
-parser.add_argument("--N", type=int, default=1024)  # 1024 512 # 256 # 128 # 64  
+parser.add_argument("--N", type=int, default=1024)  # 1024 512 # 256 # 128 # 64
 args = parser.parse_args()
 
 

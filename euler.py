@@ -10,13 +10,13 @@ import time
 import argparse
 
 parser = argparse.ArgumentParser()
-parser.add_argument("--N", type=int, default=1024)  # 1024 512 # 256 # 128 # 64  
+parser.add_argument("--N", type=int, default=1024)  # 1024 512 # 256 # 128 # 64
 parser.add_argument("--double", action="store_true")
 args = parser.parse_args()
 
 if args.double:
     print("Using double precision")
-    jax.config.update("jax_enable_x64", True) 
+    jax.config.update("jax_enable_x64", True)
 else:
     print("Using single precision")
 
@@ -119,6 +119,7 @@ def get_flux(rho_L, rho_R, vx_L, vx_R, vy_L, vy_R, P_L, P_R, gamma):
     return flux_Mass, flux_Momx, flux_Momy, flux_Energy
 
 
+@jax.jit
 def update(Mass, Momx, Momy, Energy, vol, dx, gamma, courant_fac):
     """Take a simulation timestep"""
 
@@ -175,7 +176,9 @@ def main():
     courant_fac = 0.4
     t_stop = 2.0
     save_freq = 0.1
-    save_animation_path = "output_euler_" + str(N) + ("double" if args.double else "single")
+    save_animation_path = (
+        "output_euler_" + str(N) + ("double" if args.double else "single")
+    )
 
     # Mesh
     dx = boxsize / N
