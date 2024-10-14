@@ -9,8 +9,8 @@ Benchmarking on `macbook` (Apple M3 Max) and `rusty` (Nvidia A100)
 ## Files
 
 * `euler.py` simple JAX version on single node
-* `euler_distributed.py` simple numpy version
-* `euler_numpy.py` JAX version for distributed systems
+* `euler_distributed.py` JAX version for distributed systems
+* `euler_numpy.py` simple numpy version (based on my [blog tutorial](https://levelup.gitconnected.com/create-your-own-finite-volume-fluid-simulation-with-python-8f9eab0b8305?sk=584a56a12a551ca1b74ba19b2a9dffbb))
 
 ## Strong Scaling on `macbook`:
 
