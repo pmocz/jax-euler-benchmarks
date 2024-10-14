@@ -19,6 +19,6 @@ export PYTHONUNBUFFERED=TRUE
 
 cd $HOME/Projects/Beast/beast/sandbox
 
-source $VENVDIR/beast-venv/bin/activate
+source $VENVDIR/my-jax-venv/bin/activate
 
 srun python euler_distributed.py --N=8192 --double

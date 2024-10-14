@@ -1,4 +1,5 @@
 .DS_Store
 output*
 results/output*
+timing_data/
 jax-trace/
