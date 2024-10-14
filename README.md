@@ -6,19 +6,35 @@ Flatiron Institute
 
 Benchmarking on `macbook` (Apple M3 Max) and `rusty` (Nvidia A100)
 
+
 ## Files
 
 * `euler.py` simple JAX version on single node
 * `euler_distributed.py` JAX version for distributed systems
 * `euler_numpy.py` simple numpy version (based on my [blog tutorial](https://levelup.gitconnected.com/create-your-own-finite-volume-fluid-simulation-with-python-8f9eab0b8305?sk=584a56a12a551ca1b74ba19b2a9dffbb))
 
+
+## Setup
+
+* Create a python virtual environment and install required modules:
+
+```console
+python -m venv --system-site-packages $VENVDIR/my-jax-venv
+source $VENVDIR/my-jax-venv/bin/activate
+pip install -r requirements.txt
+```
+
+
 ## Strong Scaling on `macbook`:
 
 ![strong scaling](results/scaling_strong.png)
 
+
 ## Weak Scaling on `rusty`:
 
+
 ![weak scaling](results/scaling_weak.png)
+
 
 ## Final Simulation Result
 
