@@ -1,10 +1,9 @@
 # A simple example of solving the Euler equations with JAX on distributed systems
 # Philip Mocz (2024)
 
-import os
-import jax
-
 USE_CPU_ONLY = False  # True  # False
+
+import os
 
 if USE_CPU_ONLY:
     flags = os.environ.get("XLA_FLAGS", "")
@@ -13,6 +12,7 @@ if USE_CPU_ONLY:
     os.environ["CUDA_VISIBLE_DEVICES"] = ""
     os.environ["XLA_FLAGS"] = flags
 
+import jax
 import jax.numpy as jnp
 from jax.experimental import mesh_utils
 from jax.sharding import Mesh, PartitionSpec, NamedSharding
