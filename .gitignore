@@ -4,3 +4,4 @@ results/output*
 timing_data/
 jax-trace/
 slurm*
+report*
