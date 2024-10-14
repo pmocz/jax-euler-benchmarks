@@ -119,7 +119,6 @@ def get_flux(rho_L, rho_R, vx_L, vx_R, vy_L, vy_R, P_L, P_R, gamma):
     return flux_Mass, flux_Momx, flux_Momy, flux_Energy
 
 
-@jax.jit
 def update(Mass, Momx, Momy, Energy, vol, dx, gamma, courant_fac):
     """Take a simulation timestep"""
 
