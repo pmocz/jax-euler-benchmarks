@@ -5,6 +5,11 @@ import os
 import numpy as np
 import matplotlib.pyplot as plt
 import time
+import argparse
+
+parser = argparse.ArgumentParser()
+parser.add_argument("--N", type=int, default=1024)  # 1024 512 # 256 # 128 # 64  
+args = parser.parse_args()
 
 
 def get_conserved(rho, vx, vy, P, gamma, vol):
@@ -147,13 +152,13 @@ def main():
     """Finite Volume simulation"""
 
     # Simulation parameters
-    N = 1024  # 512 # 256 # 128 # 64  # resolution
+    N = args.N  # resolution
     boxsize = 1.0
     gamma = 5.0 / 3.0  # ideal gas gamma
     courant_fac = 0.4
     t_stop = 2.0
     save_freq = 0.1
-    save_animation_path = "output_euler_numpy"
+    save_animation_path = "output_euler_numpy_" + str(N) + "double"
 
     # Mesh
     dx = boxsize / N

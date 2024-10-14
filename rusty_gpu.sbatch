@@ -21,4 +21,4 @@ cd $HOME/Projects/Beast/beast/sandbox
 
 source $VENVDIR/beast-venv/bin/activate
 
-srun python euler_distributed.py
+srun python euler_distributed.py --N=8192 --double

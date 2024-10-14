@@ -3,12 +3,22 @@
 
 import os
 import jax
-
-jax.config.update("jax_enable_x64", True)  # double-precision
 import jax.numpy as jnp
 
 import matplotlib.pyplot as plt
 import time
+import argparse
+
+parser = argparse.ArgumentParser()
+parser.add_argument("--N", type=int, default=1024)  # 1024 512 # 256 # 128 # 64  
+parser.add_argument("--double", action="store_true")
+args = parser.parse_args()
+
+if args.double:
+    print("Using double precision")
+    jax.config.update("jax_enable_x64", True) 
+else:
+    print("Using single precision")
 
 
 @jax.jit
@@ -159,13 +169,13 @@ def main():
     """Finite Volume simulation"""
 
     # Simulation parameters
-    N = 1024  # 512 # 256 # 128 # 64  # resolution
+    N = args.N  # resolution
     boxsize = 1.0
     gamma = 5.0 / 3.0  # ideal gas gamma
     courant_fac = 0.4
     t_stop = 2.0
     save_freq = 0.1
-    save_animation_path = "output_euler"
+    save_animation_path = "output_euler_" + str(N) + ("double" if args.double else "single")
 
     # Mesh
     dx = boxsize / N

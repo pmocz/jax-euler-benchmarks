@@ -6,8 +6,8 @@ import jax
 
 USE_CPU_ONLY = False  # True  # False
 
-flags = os.environ.get("XLA_FLAGS", "")
 if USE_CPU_ONLY:
+    flags = os.environ.get("XLA_FLAGS", "")
     flags = os.environ.get("XLA_FLAGS", "")
     flags += " --xla_force_host_platform_device_count=8"
     os.environ["CUDA_VISIBLE_DEVICES"] = ""
@@ -20,6 +20,18 @@ from jax.sharding import Mesh, PartitionSpec, NamedSharding
 
 import matplotlib.pyplot as plt
 import time
+import argparse
+
+parser = argparse.ArgumentParser()
+parser.add_argument("--N", type=int, default=8192)  # 1024 512 # 256 # 128 # 64  
+parser.add_argument("--double", action="store_true")
+args = parser.parse_args()
+
+if args.double:
+    print("Using double precision")
+    jax.config.update("jax_enable_x64", True) 
+else:
+    print("Using single precision")
 
 
 @jax.jit
@@ -191,17 +203,17 @@ def main():
         print("Number of devices on this process: ", jax.local_device_count())
 
     # Simulation parameters
-    N = 8192  # 8192 4096 2048 1024 # resolution
+    N = args.N  # resolution
     boxsize = 1.0
     gamma = 5.0 / 3.0  # ideal gas gamma
     courant_fac = 0.4
     t_stop = 2.0
     save_freq = 0.1
     if USE_CPU_ONLY:
-        save_animation_path = "output_euler_distributed"
+        save_animation_path = "output_euler_distributed_" + str(N) + ("double" if args.double else "single")
     else:
         save_animation_path = (
-            "/mnt/home/pmocz/ceph/jax-euler-benchmarks/output_euler_distributed"
+            "/mnt/home/pmocz/ceph/jax-euler-benchmarks/output_euler_distributed_" + str(N) + ("double" if args.double else "single")
         )
 
     # Mesh
