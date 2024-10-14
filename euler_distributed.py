@@ -12,6 +12,8 @@ if USE_CPU_ONLY:
     os.environ["CUDA_VISIBLE_DEVICES"] = ""
     os.environ["XLA_FLAGS"] = flags
 
+del os.environ["QUADD_INJECTION_PROXY"]
+
 import jax
 import jax.numpy as jnp
 from jax.experimental import mesh_utils
