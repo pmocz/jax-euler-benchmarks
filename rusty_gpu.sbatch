@@ -19,4 +19,4 @@ export PYTHONUNBUFFERED=TRUE
 
 source $VENVDIR/my-jax-venv/bin/activate
 
-srun python euler_distributed.py --N=8192 --double
+srun python euler_distributed.py --resolution=8192 --double

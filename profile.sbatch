@@ -19,4 +19,4 @@ export PYTHONUNBUFFERED=TRUE
 
 source $VENVDIR/my-jax-venv/bin/activate
 
-srun nsys profile --cuda-graph-trace=node --stats=true python euler_distributed.py --N=512
+srun nsys profile --cuda-graph-trace=node --stats=true python euler_distributed.py --resolution=512

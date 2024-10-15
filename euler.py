@@ -10,7 +10,7 @@ import time
 import argparse
 
 parser = argparse.ArgumentParser()
-parser.add_argument("--N", type=int, default=1024)  # 1024 512 # 256 # 128 # 64
+parser.add_argument("--resolution", type=int, default=1024)  # 1024 512 # 256 # 128 # 64
 parser.add_argument("--double", action="store_true")
 args = parser.parse_args()
 
@@ -169,7 +169,7 @@ def main():
     """Finite Volume simulation"""
 
     # Simulation parameters
-    N = args.N  # resolution
+    N = args.resolution
     boxsize = 1.0
     gamma = 5.0 / 3.0  # ideal gas gamma
     courant_fac = 0.4
